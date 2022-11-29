@@ -1,22 +1,22 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "terminal.integrated.defaultProfile.linux": "fish"
-            },
-            "extensions": [
-                "mads-hartmann.bash-ide-vscode",
-                "timonwong.shellcheck",
-                "kokakiwi.vscode-just",
-            ]
-        }
-    },
-    "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:1": {},
-        "ghcr.io/meaningful-ooo/devcontainer-features/fish": {},
-        "ghcr.io/guiyomh/features/vim": {},
-        "ghcr.io/guiyomh/features/just": {}
-    },
-    "postCreateCommand": "npm install -g @devcontainers/cli  &&fish -c 'fisher install pure-fish/pure'"
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "fish"
+      },
+      "extensions": [
+        "mads-hartmann.bash-ide-vscode",
+        "timonwong.shellcheck",
+        "kokakiwi.vscode-just"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {},
+    "ghcr.io/meaningful-ooo/devcontainer-features/fish": {},
+    "ghcr.io/guiyomh/features/vim": {},
+    "ghcr.io/guiyomh/features/just": {}
+  },
+  "postCreateCommand": "npm install -g @devcontainers/cli  && fish -c 'fisher install pure-fish/pure'"
 }
