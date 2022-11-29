@@ -18,5 +18,5 @@
     "ghcr.io/guiyomh/features/vim": {},
     "ghcr.io/guiyomh/features/just": {}
   },
-  "postCreateCommand": "npm install -g @devcontainers/cli  && fish -c 'fisher install pure-fish/pure'"
+  "postCreateCommand": "just install-requirements && fish"
 }

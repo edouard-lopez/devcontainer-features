@@ -30,3 +30,7 @@ cleanup:
 
 exec-last:
     docker exec -ti $(docker ps -q | head -n 1) bash
+
+install-requirements:
+    npm install -g @devcontainers/cli
+    fish -c 'fisher install pure-fish/pure'
