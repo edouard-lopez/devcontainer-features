@@ -7,10 +7,12 @@
         "terminal.integrated.defaultProfile.linux": "fish"
       },
       "extensions": [
-        "mads-hartmann.bash-ide-vscode",
-        "timonwong.shellcheck",
-        "kokakiwi.vscode-just"
-      ]
+		"mads-hartmann.bash-ide-vscode",
+		"timonwong.shellcheck",
+		"kokakiwi.vscode-just",
+		"esbenp.prettier-vscode",
+		"shakram02.bash-beautify"
+	]
     }
   },
   "features": {

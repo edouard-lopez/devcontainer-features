@@ -37,7 +37,7 @@ install-requirements:
     npm install -g @devcontainers/cli
     fish -c 'fisher install pure-fish/pure'
 
-test-installing feature: install-dev-requirements    
+test-installing feature: install-dev-requirements
     ./test/bats/bin/bats ./src/{{feature}}/install.test.bats
 
 install-dev-requirements:
