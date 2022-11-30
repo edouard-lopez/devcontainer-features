@@ -1,0 +1,10 @@
+{
+  "test_install_specific_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+      "bats": {
+        "version": "v1.8.1"
+      }
+    }
+  }
+}

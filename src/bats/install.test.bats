@@ -18,27 +18,27 @@ setup() {
 @test "can access environment variable `VERSION`" {
     git() { echo "git $*"; exit; }; export -f git # mock
     export VERSION="v1.0.0"
+
     run install.sh
     
-    # git() { : }
     assert_output --partial "Bats version is: ${VERSION}"
 }
 
 @test "can convert latest to master" {
     git() { echo "git $*"; exit; }; export -f git # mock
     export VERSION="latest"
+
     run install.sh
     
-    # git() { : }
     assert_output --partial "Bats version is: master"
 }
 
 @test "can convert specific version" {
     git() { echo "git $*"; exit; }; export -f git # mock
     export VERSION="v1.2.0"
+
     run install.sh
     
-    # git() { : }
     assert_output --partial "Bats version is: $VERSION"
 }
 
@@ -46,7 +46,7 @@ setup() {
     export VERSION="v1.2.0"
     run install.sh
     
-    assert_output --partial "Clonig bats-core"
+    assert_output --partial "Cloning bats-core"
     assert [ -d $HOME/bats-core ]
     assert_success
 
@@ -54,7 +54,13 @@ setup() {
     assert_output 'Bats 1.2.0'
 }
 
-teardown() {
+@test "can find PATH config to resolve to bats executable" {
+    run grep --only-matching '$HOME/bin' $HOME/.profile
+
+    assert_output --partial '$HOME/bin'
+}
+
+teardown_file() {
     rm -rf \
         $HOME/bats-core \
         $HOME/bin/bats
