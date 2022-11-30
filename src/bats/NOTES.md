@@ -2,8 +2,16 @@
 
 ## Supported platforms
 
-`linux/amd64` and `linux/arm64` platforms `debian`, `ubuntu` and `alpine`.
+**requirements:** `git`
 
-## References
+| architecture/OS | `debian` | `ubuntu` | `alpine`|
+| --- | --- | --- | --- |
+| `linux/amd64` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| `linux/arm64` |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-- bats-core: <https://bats-core.readthedocs.io/>
+
+## Documentation
+
+- [bats-core][repo]
+
+[repo]: https://github.com/bats-core/bats-core
