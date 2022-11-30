@@ -1,5 +1,7 @@
 #!/usr/bin/env -S just --justfile
 
+set shell := ["fish", "-c"]
+
 default_image:="base"
 # default tag for test recipe (ubuntu,debian,alpine)
 default_tag:="debian"
@@ -34,3 +36,12 @@ exec-last:
 install-requirements:
     npm install -g @devcontainers/cli
     fish -c 'fisher install pure-fish/pure'
+
+test-installing feature: install-dev-requirements    
+    ./test/bats/bin/bats ./src/{{feature}}/install.test.bats
+
+install-dev-requirements:
+    if test ! -d test/bats; git clone --depth 1 https://github.com/bats-core/bats-core.git test/bats; end 
+    if test ! -d test/test_helper/bats-support; git clone --depth 1 https://github.com/bats-core/bats-support.git test/test_helper/bats-support; end 
+    if test ! -d test/test_helper/bats-assert; git clone --depth 1 https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert; end 
+
