@@ -1,6 +1,6 @@
 setup() {
-    load '../../test/test_helper/bats-support/load'
-    load '../../test/test_helper/bats-assert/load'
+    load '../../.bin/test_helper/bats-support/load'
+    load '../../.bin/test_helper/bats-assert/load'
 
     # get the containing directory of this file
     FEATURE_DIR="$( cd "$( dirname "$BATS_TEST_FILENAME" )" >/dev/null 2>&1 && pwd )"

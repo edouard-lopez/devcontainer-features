@@ -38,10 +38,10 @@ install-requirements:
     fish -c 'fisher install pure-fish/pure'
 
 test-installing feature: install-dev-requirements
-    ./test/bats/bin/bats ./src/{{feature}}/install.test.bats
+    ./.bin/bats-core/bin/bats ./src/{{feature}}/install.test.bats
 
 install-dev-requirements:
-    if test ! -d test/bats; git clone --depth 1 https://github.com/bats-core/bats-core.git test/bats; end 
-    if test ! -d test/test_helper/bats-support; git clone --depth 1 https://github.com/bats-core/bats-support.git test/test_helper/bats-support; end 
-    if test ! -d test/test_helper/bats-assert; git clone --depth 1 https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert; end 
+    if test ! -d .bin/bats-core; git clone --depth 1 https://github.com/bats-core/bats-core.git .bin/bats-core; end 
+    if test ! -d .bin/test_helper/bats-support; git clone --depth 1 https://github.com/bats-core/bats-support.git .bin/test_helper/bats-support; end 
+    if test ! -d .bin/test_helper/bats-assert; git clone --depth 1 https://github.com/bats-core/bats-assert.git .bin/test_helper/bats-assert; end 
 
