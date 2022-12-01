@@ -34,7 +34,7 @@
       "default": "latest",
       "description": "Select version of bats-core git tag."
     },
-    "installAfter": [
+    "installsAfter": [
         "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ]
   },
