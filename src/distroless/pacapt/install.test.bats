@@ -1,0 +1,36 @@
+    setup() {
+        load '../../../.bin/test_helper/bats-support/load'
+        load '../../../.bin/test_helper/bats-assert/load'
+
+        # get the containing directory of this file
+        FEATURE_DIR="$( cd "$( dirname "$BATS_TEST_FILENAME" )" >/dev/null 2>&1 && pwd )"
+        PATH="$FEATURE_DIR:$PATH" # add feature to PATH
+
+        source install.sh
+        sudo rm -rf /usr/bin/pacapt
+    }
+
+    @test "can install with root user" {
+        ROOT_USER_ID=0
+        id() { echo $ROOT_USER_ID; }; export -f id # mock
+        curl() { exit 0; }; export -f curl # mock
+
+        run install
+        
+        assert_output --partial 'Installing… pactapt'
+        assert_output --partial 'using root'
+        assert_success
+    }
+
+    @test "can install with standard user" {
+        STANDARD_USER_ID=1000
+        id() { echo $STANDARD_USER_ID; }; export -f id # mock
+
+        run install
+        
+        assert_output --partial 'Installing… pactapt'
+        assert_output --partial 'using user'
+        assert [ -x /usr/bin/pacapt ]
+        assert_output --partial "pacapt version"
+    }
+
