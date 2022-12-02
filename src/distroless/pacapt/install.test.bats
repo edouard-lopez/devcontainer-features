@@ -17,7 +17,7 @@
 
         run install
         
-        assert_output --partial 'Installing… pactapt'
+        assert_output --partial "Installing… 'pactapt'"
         assert_output --partial 'using root'
         assert_success
     }
@@ -28,7 +28,7 @@
 
         run install
         
-        assert_output --partial 'Installing… pactapt'
+        assert_output --partial "Installing… 'pactapt'"
         assert_output --partial 'using user'
         assert [ -x /usr/bin/pacapt ]
         assert_output --partial "pacapt version"
