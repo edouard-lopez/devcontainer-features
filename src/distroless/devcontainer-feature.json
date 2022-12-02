@@ -1,0 +1,9 @@
+{
+  "name": "Distroless installation mechanism",
+  "id": "distroless",
+  "version": "0.0.1",
+  "description": "Snippet to pipe in your shell to install easily",
+  "documentationURL": "https://github.com/edouard-lopez/devcontainers-features/tree/main/src/distroless",
+  "options": {},
+  "keywords": ["distroless", "pacapt", "essential", "cross-distro"]
+}
