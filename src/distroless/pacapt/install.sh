@@ -2,7 +2,7 @@
 set -e
 
 function install() {
-    printf "Installing… 'pactapt' (cross-os package managers)"
+    printf "Installing… 'pacapt' (cross-os package managers)"
 
     ROOT_USER_ID=0
     if [ "$(id -u)" -eq $ROOT_USER_ID ]; then
