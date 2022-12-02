@@ -10,21 +10,21 @@
         sudo rm -rf /usr/bin/pacapt
     }
 
-    @test "can ensure 'curl' is present" {
-        curl() { exit 0; }; export -f curl # mock
+    @test "can ensure 'wget' is present" {
+        wget() { exit 0; }; export -f wget # mock
 
         run install
 
-        assert_output --partial 'Ensure curl'
+        assert_output --partial 'Ensure wget'
         assert_success
-        assert_output --regexp 'curl [0-9].+'
+        assert_output --regexp 'Wget [0-9].+'
     }
 
     @test "can install with root user" {
         ROOT_USER_ID=0
         ensure() { echo; }; export -f ensure # mock
         id() { echo $ROOT_USER_ID; }; export -f id # mock
-        curl() { exit 0; }; export -f curl # mock
+        wget() { exit 0; }; export -f wget # mock
 
         run install
         
