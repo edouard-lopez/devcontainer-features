@@ -8,6 +8,12 @@ function ensure() {
     distroId="$ID"
     echo "Ensure $package is installed on $distroId"
 
+    ROOT_USER_ID=0
+    privileges=""
+    if [ "$(id -u)" -ne $ROOT_USER_ID ]; then
+        privileges="sudo "
+    fi
+
     case "$distroId" in
         alpine)
             apk add \
@@ -15,12 +21,12 @@ function ensure() {
                 "$package"
         ;;
         ubuntu|debian)
-            apt-get update
-            apt-get install \
+            "$privileges"apt-get update
+            "$privileges"apt-get install \
                     --yes \
                     --no-install-recommends \
                 "$package"
-            rm -rf /var/lib/apt/lists/* # clean up
+            "$privileges"rm -rf /var/lib/apt/lists/* # clean up
         ;;
         centos)
             dnf update
