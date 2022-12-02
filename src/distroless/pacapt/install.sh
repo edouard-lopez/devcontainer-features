@@ -33,23 +33,23 @@ function ensure() {
             exit 1
         ;;
     esac
-    command curl -V
+    command wget -V | head -n 1
 }
 
 
 function install() {
-    ensure 'curl'
+    ensure 'wget'
 
     printf "Installing… 'pacapt' (cross-os package managers)"
 
     ROOT_USER_ID=0
     if [ "$(id -u)" -eq $ROOT_USER_ID ]; then
         printf "using root\n"
-        curl -L -s -o /usr/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
+        wget -q -O /usr/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
         chmod 755 /usr/bin/pacapt
     else
         printf "using user\n"
-        sudo curl -L -s -o /usr/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
+        sudo wget -q -O /usr/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
         sudo chmod 755 /usr/bin/pacapt
     fi
 
