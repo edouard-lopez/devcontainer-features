@@ -30,14 +30,12 @@ cleanup:
     -docker rm -f $(docker ps -a -q)
     -docker image rm -f $(docker image ls -q)
 
-exec-last:
-    docker exec -ti $(docker ps -q | head -n 1) bash
-
 install-requirements:
     npm install -g @devcontainers/cli
     fish -c 'fisher install pure-fish/pure'
 
-test-installing feature: install-dev-requirements
+all_features:='*'
+test-installing feature=all_features: install-dev-requirements
     ./.bin/bats-core/bin/bats ./src/{{feature}}/install.test.bats
 
 install-dev-requirements:
