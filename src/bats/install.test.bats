@@ -44,6 +44,7 @@ setup() {
 
 @test "can install bats-core" {
     export VERSION="v1.2.0"
+    export _REMOTE_USER_HOME=$HOME
     run install.sh
     
     assert_output --partial "Cloning bats-core"
