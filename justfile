@@ -36,7 +36,7 @@ install-requirements:
 
 all_features:='*'
 test-installing feature=all_features: install-dev-requirements
-    ./.bin/bats-core/bin/bats ./src/{{feature}}/install.test.bats
+    ./.bin/bats-core/bin/bats ./src/{{feature}}/**/*.bats
 
 install-dev-requirements:
     if test ! -d .bin/bats-core; git clone --depth 1 https://github.com/bats-core/bats-core.git .bin/bats-core; end 
