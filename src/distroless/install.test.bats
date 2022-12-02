@@ -8,14 +8,14 @@ setup() {
     PATH="$FEATURE_DIR:$PATH" # add feature to PATH
 }
 
-@test "can run 'git' install script" {
-    run install.sh
-    
-    assert_output --partial "Installing… 'git'"
-}
-
 @test "can run 'pacapt' install script" {
     run install.sh
     
     assert_output --partial "Installing… 'pacapt'"
+}
+
+@test "can run 'git' install script" {
+    run install.sh
+    
+    assert_output --partial "Installing… 'git'"
 }
