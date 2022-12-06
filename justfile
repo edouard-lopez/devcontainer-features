@@ -10,7 +10,7 @@ default:
     @just --list
 
 # run global test
-global:
+global-scenarios-only:
     devcontainer features test --global-scenarios-only .
 
 # run tests on the given feature
@@ -18,7 +18,7 @@ test feature image=default_image tag=default_tag: cleanup
     devcontainer features test \
         --features {{feature}} \
         --skip-scenarios \
-        --base-image mcr.microsoft.com/devcontainers/{{image}}:{{tag}} .
+        --base-image {{image}}:{{tag}} .
 
 # run test scenarios on the given feature
 scenarios feature:
