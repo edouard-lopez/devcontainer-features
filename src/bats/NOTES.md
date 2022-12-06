@@ -4,11 +4,12 @@
 
 **requirements:** `git`
 
-| architecture/OS | `debian` | `ubuntu` | `alpine`|
-| --- | --- | --- | --- |
-| `linux/amd64` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| `linux/arm64` |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| architecture/OS | `debian` | `ubuntu` | `alpine`| `rockylinux`
+| --- | --- | --- | --- | --- |
+| `linux/amd64` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| `linux/arm64` |  ? | ? | ? | ? |
 
+**Note:** Havent test the `linux/arm64`.
 
 ## Documentation
 

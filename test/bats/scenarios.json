@@ -6,5 +6,29 @@
         "version": "v1.8.1"
       }
     }
+  },
+  "test_with_ubuntu": {
+    "image": "ubuntu",
+    "features": {
+      "bats": {}
+    }
+  },
+  "test_with_debian": {
+    "image": "debian",
+    "features": {
+      "bats": {}
+    }
+  },
+  "test_with_alpine": {
+    "image": "alpine",
+    "features": {
+      "bats": {}
+    }
+  },
+  "test_with_rockylinux": {
+    "image": "rockylinux:9",
+    "features": {
+      "bats": {}
+    }
   }
 }
