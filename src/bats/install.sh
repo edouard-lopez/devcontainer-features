@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 set -e
 
 export BATS_VERSION # version/git tag to use
@@ -34,6 +34,8 @@ add_bats_to_PATH() {
 }
 
 run() {
+    . ./ensure.sh && ensure 'git ca-certificates wget bash'
+
     echo "Installing… Bats (Bash Automated Testing System)"
     echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
 

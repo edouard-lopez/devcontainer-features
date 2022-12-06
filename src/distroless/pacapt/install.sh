@@ -1,50 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 set -e
-
-function ensure() {
-    package="$1"
-
-    source /etc/os-release
-    distroId="$ID"
-    echo "Ensure $package is installed on $distroId"
-
-    ROOT_USER_ID=0
-    privileges=""
-    if [ "$(id -u)" -ne $ROOT_USER_ID ]; then
-        privileges="sudo "
-    fi
-
-    case "$distroId" in
-        alpine)
-            apk add \
-                    --no-cache \
-                "$package"
-        ;;
-        ubuntu|debian)
-            "$privileges"apt-get update
-            "$privileges"apt-get install \
-                    --yes \
-                    --no-install-recommends \
-                "$package"
-            "$privileges"rm -rf /var/lib/apt/lists/* # clean up
-        ;;
-        centos)
-            dnf update
-            dnf install \
-                    --yes \
-                "$package"
-        ;;
-        *)
-            echo "Unsupported distribution"
-            exit 1
-        ;;
-    esac
-    command wget -V | head -n 1
-}
-
-
-function install() {
-    ensure 'wget'
+install() {
+    . ../ensure.sh && ensure 'git wget bash'
 
     printf "Installing… 'pacapt' (cross-os package managers)"
 
