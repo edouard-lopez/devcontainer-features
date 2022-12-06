@@ -22,12 +22,16 @@ jobs:
           - mcr.microsoft.com/devcontainers/base:ubuntu
     steps:
       - uses: actions/checkout@v2
+      - uses: extractions/setup-just@v1
 
-      - name: "Install latest devcontainer CLI"
-        run: npm install -g @devcontainers/cli
+      - name: "Install requirements"
+        run: just install-dev-requirements
+
+      - name: "Test install script ${{ matrix.features }}"
+        run: just test-installing ${{ matrix.features }}
 
       - name: "Generating tests for '${{ matrix.features }}' against '${{ matrix.baseImage }}'"
-        run: devcontainer features test -f ${{ matrix.features }} -i ${{ matrix.baseImage }} .
+        run: just test ${{ matrix.features }} ${{ matrix.baseImage }}
 
   test-global:
     runs-on: ubuntu-latest
