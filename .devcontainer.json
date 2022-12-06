@@ -7,12 +7,12 @@
         "terminal.integrated.defaultProfile.linux": "fish"
       },
       "extensions": [
-		"mads-hartmann.bash-ide-vscode",
-		"timonwong.shellcheck",
-		"kokakiwi.vscode-just",
-		"esbenp.prettier-vscode",
-		"shakram02.bash-beautify"
-	]
+        "mads-hartmann.bash-ide-vscode",
+        "timonwong.shellcheck",
+        "kokakiwi.vscode-just",
+        "esbenp.prettier-vscode",
+        "shakram02.bash-beautify"
+      ]
     }
   },
   "features": {
@@ -21,5 +21,5 @@
     "ghcr.io/guiyomh/features/vim": {},
     "ghcr.io/guiyomh/features/just": {}
   },
-  "postCreateCommand": "just install-requirements && fish"
+  "postCreateCommand": "just install-dev-requirements install-extra && fish"
 }
