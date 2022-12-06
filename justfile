@@ -1,7 +1,6 @@
 #!/usr/bin/env -S just --justfile
 
-set shell := ["fish", "-c"]
-
+set shell := ["bash", "-uc"]
 
 default:
     @just --list
@@ -25,7 +24,8 @@ test-with-scenarios feature image=default_image: cleanup
 
 all_features:='*'
 test-installing feature=all_features: install-dev-requirements
-    ./.bin/bats-core/bin/bats ./src/{{feature}}/**/*.bats
+    shopt -s globstar \
+    && ./.bin/bats-core/bin/bats ./src/{{feature}}/**/*.bats
 
 # run test scenarios on the given feature
 test-scenarios feature:
@@ -37,10 +37,12 @@ install-extra:
     fish -c 'fisher install pure-fish/pure'
 
 install-dev-requirements:
-    npm install -g @devcontainers/cli
-    if test ! -d .bin/bats-core; git clone --depth 1 https://github.com/bats-core/bats-core.git .bin/bats-core; end 
-    if test ! -d .bin/test_helper/bats-support; git clone --depth 1 https://github.com/bats-core/bats-support.git .bin/test_helper/bats-support; end 
-    if test ! -d .bin/test_helper/bats-assert; git clone --depth 1 https://github.com/bats-core/bats-assert.git .bin/test_helper/bats-assert; end 
+    type devcontainer >/dev/null 2>&1 \
+    || npm install -g @devcontainers/cli
+    [[ ! -d .bin/ ]] && mkdir -p .bin/ || true
+    [[ ! -d .bin/bats-core ]] && git clone --depth 1 https://github.com/bats-core/bats-core.git .bin/bats-core || true
+    [[ ! -d .bin/test_helper/bats-support ]] && git clone --depth 1 https://github.com/bats-core/bats-support.git .bin/test_helper/bats-support || true
+    [[ ! -d .bin/test_helper/bats-assert ]] && git clone --depth 1 https://github.com/bats-core/bats-assert.git .bin/test_helper/bats-assert || true
 
 cleanup:
     -docker rm -f $(docker ps -a -q)
