@@ -2,8 +2,6 @@
 
 ## Supported platforms
 
-**requirements:** `git`
-
 | architecture/OS | `debian` | `ubuntu` | `alpine`| `rockylinux`
 | --- | --- | --- | --- | --- |
 | `linux/amd64` | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
