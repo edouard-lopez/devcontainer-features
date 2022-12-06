@@ -15,6 +15,18 @@ setup() {
     assert_output --partial "Installing… Bats"
 }
 
+@test "can ensure package are present" {
+    apk() { echo; }; export -f apk # mock
+    apt() { echo; }; export -f apt # mock
+    dnf() { echo; }; export -f dnf # mock
+
+    run install.sh
+    
+    assert_output --partial "Ensure availability of"
+    assert_output --partial "Ensure… done"
+
+}
+
 @test "can access environment variable `VERSION`" {
     git() { echo "git $*"; exit; }; export -f git # mock
     export VERSION="v1.0.0"
