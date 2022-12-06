@@ -17,6 +17,8 @@ jobs:
         baseImage:
           - debian:latest
           - ubuntu:latest
+          - alpine:latest
+          - rockylinux:9
           - mcr.microsoft.com/devcontainers/base:ubuntu
     steps:
       - uses: actions/checkout@v2
