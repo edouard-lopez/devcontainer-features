@@ -34,7 +34,7 @@ add_bats_to_PATH() {
 }
 
 run() {
-    . ./ensure.sh && ensure 'git ca-certificates wget bash'
+    . "$(dirname "$0")"/ensure.sh && ensure 'git ca-certificates wget bash'
 
     echo "Installing… Bats (Bash Automated Testing System)"
     echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
