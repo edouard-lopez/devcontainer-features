@@ -1,0 +1,36 @@
+{
+  "name": "prettier CLI (via npm)",
+  "id": "prettier",
+  "version": "0.0.1",
+  "description": "Prettier is an opinionated code formatter.",
+  "documentationURL": "https://github.com/edouard-lopez/devcontainers-features/tree/main/src/prettier",
+  "options": {
+    "version": {
+      "type": "string",
+      "proposals": ["latest"],
+      "default": "latest",
+      "description": "Select version to install."
+    },
+    "installsAfter": ["ghcr.io/devcontainers/features/node:latest"]
+  },
+  "keywords": [
+    "javascript",
+    "css",
+    "html",
+    "graphql",
+    "markdown",
+    "flow",
+    "yaml",
+    "less",
+    "json",
+    "formatter",
+    "angular",
+    "typescript",
+    "printer",
+    "vue",
+    "jsx",
+    "scss",
+    "prettier",
+    "ast"
+  ]
+}

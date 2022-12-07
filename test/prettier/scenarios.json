@@ -1,0 +1,34 @@
+{
+  "test_install_specific_version": {
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+      "prettier": {
+        "version": "2.8.0"
+      }
+    }
+  },
+  "test_with_ubuntu": {
+    "image": "ubuntu",
+    "features": {
+      "prettier": {}
+    }
+  },
+  "test_with_debian": {
+    "image": "debian",
+    "features": {
+      "prettier": {}
+    }
+  },
+  "test_with_alpine": {
+    "image": "alpine",
+    "features": {
+      "prettier": {}
+    }
+  },
+  "test_with_rockylinux": {
+    "image": "rockylinux:9",
+    "features": {
+      "prettier": {}
+    }
+  }
+}
