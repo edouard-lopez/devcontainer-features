@@ -1,4 +1,4 @@
-# Features
+# Features [![CI - Test Features](https://github.com/edouard-lopez/devcontainer-features/actions/workflows/test.yaml/badge.svg)](https://github.com/edouard-lopez/devcontainer-features/actions/workflows/test.yaml)
 
 > Some devcontainer features I find useful.
 
