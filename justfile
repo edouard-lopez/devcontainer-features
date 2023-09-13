@@ -11,13 +11,13 @@ test-global-scenarios-only:
 
 # run tests on the given feature
 default_image:="alpine:latest"
-test feature image=default_image: cleanup
+test feature image=default_image:
     devcontainer features test \
         --features {{feature}} \
         --skip-scenarios \
         --base-image {{image}} .
 
-test-with-scenarios feature image=default_image: cleanup
+test-with-scenarios feature image=default_image:
     devcontainer features test \
         --features {{feature}} \
         --base-image {{image}} .
@@ -37,12 +37,12 @@ install-extra:
     fish -c 'fisher install pure-fish/pure'
 
 install-dev-requirements:
-    type devcontainer >/dev/null 2>&1 \
+    @type devcontainer >/dev/null 2>&1 \
     || npm install -g @devcontainers/cli
-    [[ ! -d .bin/ ]] && mkdir -p .bin/ || true
-    [[ ! -d .bin/bats-core ]] && git clone --depth 1 https://github.com/bats-core/bats-core.git .bin/bats-core || true
-    [[ ! -d .bin/test_helper/bats-support ]] && git clone --depth 1 https://github.com/bats-core/bats-support.git .bin/test_helper/bats-support || true
-    [[ ! -d .bin/test_helper/bats-assert ]] && git clone --depth 1 https://github.com/bats-core/bats-assert.git .bin/test_helper/bats-assert || true
+    @[[ ! -d .bin/ ]] && mkdir -p .bin/ || true
+    @[[ ! -d .bin/bats-core ]] && git clone --depth 1 https://github.com/bats-core/bats-core.git .bin/bats-core || true
+    @[[ ! -d .bin/test_helper/bats-support ]] && git clone --depth 1 https://github.com/bats-core/bats-support.git .bin/test_helper/bats-support || true
+    @[[ ! -d .bin/test_helper/bats-assert ]] && git clone --depth 1 https://github.com/bats-core/bats-assert.git .bin/test_helper/bats-assert || true
 
 cleanup:
     -docker rm -f $(docker ps -a -q)
