@@ -36,11 +36,8 @@ FEATURE="prettier"
     assert_output --partial "version is: latest"
 }
 
-check_feature_help() {
-    $FEATURE --help | head -n 1
-}
 @test "can use CLI" {
-    run check_feature_help
+    run $FEATURE --help
 
     assert_success
     assert_output --partial $FEATURE

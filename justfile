@@ -11,13 +11,13 @@ test-global-scenarios-only:
 
 # run tests on the given feature
 default_image:="alpine:latest"
-test feature image=default_image: cleanup
+test feature image=default_image:
     devcontainer features test \
         --features {{feature}} \
         --skip-scenarios \
         --base-image {{image}} .
 
-test-with-scenarios feature image=default_image: cleanup
+test-with-scenarios feature image=default_image:
     devcontainer features test \
         --features {{feature}} \
         --base-image {{image}} .

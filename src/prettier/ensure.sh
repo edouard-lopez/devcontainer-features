@@ -6,7 +6,6 @@ ensure() {
     ROOT_USER_ID=0
     [ "$(id -u)" -ne $ROOT_USER_ID ] && privileges="sudo "
 
-set -x
     type apk >/dev/null 2>&1 && echo 'Alpine' \
         && ${privileges}apk add  \
                                 --no-cache \
@@ -25,7 +24,6 @@ set -x
                     --assumeyes \
                 $packages  \
         && dnf clean all
-set +x
     
     echo "Ensure… done"
 }

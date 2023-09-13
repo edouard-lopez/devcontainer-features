@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 set -e
 
 export SUCCESS=0
@@ -7,7 +7,7 @@ VERSION_TO_INSTALL=${VERSION:-"latest"}
 
 
 run() {
-    . "$(dirname "$0")"/ensure.sh && ensure 'curl bash'
+    . "$(dirname "$0")"/ensure.sh && ensure 'curl bash ca-certificates'
 
     echo "Installing… Prettier"
     echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
@@ -21,8 +21,10 @@ run() {
 
     ${privileges}curl -Lo /usr/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
     ${privileges}chmod 755 /usr/bin/pacapt
-    ${privileges}pacapt update
-    ${privileges}pacapt install --noconfirm nodejs
+    ${privileges}pacapt update || true
+
+    ${privileges}pacapt install --noconfirm nodejs npm
+    ${privileges}npm install --global prettier
 
     echo "The provided $FEATURE version is: $VERSION_TO_INSTALL"
 }

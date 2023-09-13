@@ -4,6 +4,7 @@
 
 * [bats](src/bats/README.md): Install `bats` (Bash Automated Testing System)
 * [x] prettier
+* [ ] httpie
 
 ## Usage
 
