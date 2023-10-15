@@ -33,12 +33,12 @@
       ],
       "default": "latest",
       "description": "Select version of bats-core git tag."
-    },
-    "installsAfter": [
-      "ghcr.io/devcontainers/features/git:1",
-      "ghcr.io/meaningful-ooo/devcontainer-features/fish"
-    ]
+    }
   },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/git:1",
+    "ghcr.io/meaningful-ooo/devcontainer-features/fish"
+  ],
   "keywords": [
     "testing",
     "shell",
